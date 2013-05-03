@@ -1,0 +1,131 @@
+<html>
+  <head>
+    <style type="text/css">
+      #div1 {
+        position: relative;
+        border: 1px red solid;
+      }
+
+      #div2 {
+        position: absolute;
+        top: 300px;
+        left: 30px;
+        border: 1px blue solid;
+      }
+
+      #div3 {
+        position: relative;
+        top: 0;
+        left: 0;
+        border: 1px green solid;
+      }
+
+      span.blue {
+        color: blue;
+      }
+
+      #div4 {
+        position: relative;
+        top: 125px;
+        left: 150px;
+        border: 1px black solid;
+      }
+
+      #div5 {
+        position: relative;
+        top: 150px;
+        left: 100px;
+        border: 1px black solid;
+      }
+
+      span.green {
+        color: green;
+      }
+
+      span.red {
+        color: red;
+      }
+
+      div.placeholder {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1">
+      div1
+      <div id="div2">
+        div2: absolutely positioned element is taken <b>out</b> of the DOM flow.
+        So imagine everything is rendered top to bottom first, and absolutely
+        positioned elements are "inserted" into specified position.
+        <br/>
+        This big <span class="blue">blue</span> box is absolutely positioned
+        <div id="div3">
+          div3: Putting a "relative" positioned element <b>inside</b> an
+          absolutely positioned element <b>restarts</b> the flow <b>inside</b> the
+          absolutely positioned element (they start going from top to bottom
+          again)
+          <br/>
+          This <span class="green">green</span> box is relatively positioned
+          <b>inside</b> an absolutely positioned div
+        </div>
+        <div class="placeholder">
+          div before div5
+        </div>
+        <div id="div5">
+          div5: relative means "relative to <b>where it's supposed to be</b>.
+          <br/>
+          In this case, relative to between "div before div5" and "div after
+          div5" (100px from the left of, and 150px from the top of)
+        </div>
+        <div class="placeholder">
+          div after div5
+        </div>
+        <div>
+          foobar: with out any <code>position</code> set, the default is
+          <code>static</code>.
+          <br/>
+          Position is the same as the position inside the
+          HTML markup file. <b>Cannot</b> take <code>top</code>,
+          <code>left</code>, etc properties
+          <br/>
+          foobar is a div inside <code>div2</code>, and after
+          <code>div after div5</code>, in the HTML code.
+        </div>
+      </div>
+    </div>
+    <div>
+      The (0,0) of "absolutely positioned" element is the upper-left corner of
+      the <b>closest ancester with position = "relative"</b>. It doesn't have
+      to be the immediate parent.
+    </div>
+    <div>
+      The <span class="blue">blue</span> box is absolutely positioned with
+      (0, 0) being the upper-left corner the <span class="red">red</span> box
+    </div>
+    <div class="placeholder">
+      div <b>before</b> div4
+    </div>
+    <div id="div4">
+      div4: A relative positioned element remains <b>in the flow</b> (top to
+      bottom) as far as the DOM is concerned. It <b>just appears</b> to be
+      somewhere else visually on the browser.
+      <br/>
+      Relative to to <b>where it's supposed to be</b>.
+      <br/>
+      <code>
+        top: 125px;
+        left: 150px;
+      </code>
+      <br/>
+      150px from the left of where it's supposed to be. 125px from the top of
+      where it's supposed to be.
+    </div>
+    <div class="placeholder">
+      div <b>after</b> div4
+      <br/>
+      See the "empty" space between "before" and "after". That's where div4 is
+      in the DOM. It just <b>appears</b> to be somewhere else on the screen.
+    </div>
+  </body>
+</html>
