@@ -1,6 +1,12 @@
 # CSS Notes
 
-## I. Positioning
+## I. Key Points
+
+1. If an element is "taken out of the flow", the parent element will __not__
+resize, move, or accomodate that element in anyway. The parent simply doesn't
+know what it's doing. Except the fact that, it is a child.
+
+## II. Positioning
 
 ### General Take-aways
 
@@ -19,3 +25,18 @@
     3. Its "place" is recognized by the DOM
 
 Please see `css_positioning.html` for an example.
+
+## III. Floating
+
+### General Take-aways
+
+1. `float`
+    1. Taken __out__ of the document flow
+    2. "floats" __do not overlap__ other "floats". They sit next to each other.
+    3. __Exception__ to above is the use of __negative margin__
+
+2. `float: left;`
+    1. The left margin of the "floated" element moves all the way to the left
+    edge of the __immediate parent__ (edge of padding if there are any).
+
+Please see `float.html` for an example.
