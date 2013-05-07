@@ -80,3 +80,30 @@ Usage:
     2. `div-b` sees `div-a`, since they cannot overlap. It sits next to `div-a`
     3. But `div-b` must also be below all floated-left elements (`clear: left`)
     4. So `div-b` now moves below `div-a`
+
+## VI. Sprites
+
+### General
+
+1. Sprite is an image of a collection of small but related images.
+
+    For example, the hover-over states of a button. Same button, but one state
+    has a darker shade.
+2. In a nutshell, `background-position` is used to "move" the `background-image`
+to the desired point.
+
+    The element must also have a `width` to show __just__ the desired portion of
+    the bigger image.
+
+3. Use `scale`, `scaleY`, `scaleX` to "flip" the image.
+4. If `compass` is used, the following will take care of "flipping" in all
+browsers. Otherwise, you have to specify transformation for __each__ browser.
+
+    ```css
+    @include scale(-1, -1) // mirror along both axes
+    @include scaleX(-1) // mirror along x-axis
+    @include scaleY(-1) // mirror along y-axis
+    ```
+
+Please see `vitrue-tooltip-sprite.png` for a sample sprite, and how it's used
+in pure CSS in `sprite.html`
