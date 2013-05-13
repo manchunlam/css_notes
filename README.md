@@ -1,5 +1,14 @@
 # CSS Notes
 
+## Table of Contents
+
+1. [Key Points](#i-key-points)
+2. [Positioning](#ii-positioning)
+3. [Floating](#iii-floating)
+4. [Clear](#iv-clear)
+5. [Float and Clear Combo](#v-float-and-clear-combo)
+6. [Sprites](#vi-sprites)
+
 ## I. Key Points
 
 1. If an element is "taken out of the flow", the parent element will __not__
